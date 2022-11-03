@@ -279,40 +279,38 @@ class FormBuilderDropdown<T> extends FormBuilderField<T> {
               state.didChange(value);
             }
 
-            return DropdownButtonHideUnderline(
-              child: DropdownButton<T>(
-                isExpanded: isExpanded,
-                hint: hint,
-                items: items,
-                value: field.value,
-                style: style,
-                isDense: isDense,
-                disabledHint: field.value != null
-                    ? (items
-                            .firstWhereOrNull((dropDownItem) =>
-                                dropDownItem.value == field.value)
-                            ?.child ??
-                        Text(field.value.toString()))
-                    : disabledHint,
-                elevation: elevation,
-                iconSize: iconSize,
-                icon: icon,
-                iconDisabledColor: iconDisabledColor,
-                iconEnabledColor: iconEnabledColor,
-                onChanged:
-                    state.enabled ? (value) => changeValue(value) : null,
-                onTap: onTap,
-                focusNode: state.effectiveFocusNode,
-                autofocus: autofocus,
-                dropdownColor: dropdownColor,
-                focusColor: focusColor,
-                itemHeight: itemHeight,
-                selectedItemBuilder: selectedItemBuilder,
-                menuMaxHeight: menuMaxHeight,
-                borderRadius: borderRadius,
-                enableFeedback: enableFeedback,
-                alignment: alignment,
-              ),
+            return DropdownButton<T>(
+              isExpanded: isExpanded,
+              hint: hint,
+              items: items,
+              value: field.value,
+              style: style,
+              isDense: false,
+              disabledHint: field.value != null
+                  ? (items
+                          .firstWhereOrNull((dropDownItem) =>
+                              dropDownItem.value == field.value)
+                          ?.child ??
+                      Text(field.value.toString()))
+                  : disabledHint,
+              elevation: elevation,
+              iconSize: iconSize,
+              icon: icon,
+              iconDisabledColor: iconDisabledColor,
+              iconEnabledColor: iconEnabledColor,
+              onChanged:
+                  state.enabled ? (value) => changeValue(value) : null,
+              onTap: onTap,
+              focusNode: state.effectiveFocusNode,
+              autofocus: autofocus,
+              dropdownColor: dropdownColor,
+              focusColor: focusColor,
+              itemHeight: itemHeight,
+              selectedItemBuilder: selectedItemBuilder,
+              menuMaxHeight: menuMaxHeight,
+              borderRadius: borderRadius,
+              enableFeedback: enableFeedback,
+              alignment: alignment,
             );
           },
         );
